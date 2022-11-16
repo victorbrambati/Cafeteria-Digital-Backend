@@ -13,35 +13,34 @@ generator client {
 model User {
   id        Int           @id @default(autoincrement())
   email     String        @unique
-  full_name String
   password  String
   orders    Order[]
   addresses UserAddress[]
 }
 
 model UserAddress {
-  id             Int    @id @default(autoincrement())
-  street_address String
-  postal_code    String
-  state          String
-  phone_number   String
-  full_name      String
-  user           User   @relation(fields: [address_id], references: [id])
-  address_id     Int
+  id            Int    @id @default(autoincrement())
+  streetAddress String
+  postalCode    String
+  state         String
+  phoneNumber   String
+  fullName      String
+  user          User   @relation(fields: [addressId], references: [id])
+  addressId     Int
 }
 
 model Order {
-  id           Int         @id @default(autoincrement())
-  user         User        @relation(fields: [order_id], references: [id])
-  order_id     Int
-  status       String
-  orders_items OrderItem[]
+  id          Int         @id @default(autoincrement())
+  user        User        @relation(fields: [orderId], references: [id])
+  orderId     Int
+  status      String
+  ordersItems OrderItem[]
 }
 
 model OrderItem {
-  id           Int    @id @default(autoincrement())
-  order        Order  @relation(fields: [item_id], references: [id])
-  item_id      Int
-  product_name String
-  quantity     Int
+  id          Int    @id @default(autoincrement())
+  order       Order  @relation(fields: [itemId], references: [id])
+  itemId      Int
+  productName String
+  quantity    Int
 }
