@@ -1,4 +1,4 @@
-export interface userPayload {
+export interface UserPayload {
   sub: number;
   email: string;
   iat?: number;
