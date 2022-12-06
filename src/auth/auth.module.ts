@@ -12,7 +12,7 @@ import { LocalStrategy } from './strategies/local.strategy';
     UserModule,
     JwtModule.register({
       secret: process.env.JWT_SECRET,
-      signOptions: { expiresIn: '7d' },
+      signOptions: { expiresIn: '15d' },
     }),
   ],
   controllers: [AuthController],
